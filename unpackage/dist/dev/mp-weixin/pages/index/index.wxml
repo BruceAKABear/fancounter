@@ -1,0 +1,1 @@
+<view class="content"><image class="logo" src="../../static/logo.jpg" mode="scaleToFill"></image><view class="text-area"><text class="title">{{title}}</text></view></view>
