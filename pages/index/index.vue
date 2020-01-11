@@ -1,57 +1,73 @@
 <template>
-	<view class="content">
-		<image class="logo" src="../../static/logo.jpg" mode="scaleToFill"></image>
-		<view class="text-area">
-			<text class="title">{{ title }}</text>
+	<view>
+		<view class="content">
+			<!-- logo和标语 -->
+			<view class="logo-slogan">
+				<view class="logo-pic">
+					<image class="logo" src="../../static/logo.jpg" mode="scaleToFill"></image>
+				</view>
+				<view class="logo-slogan">
+					<text class="slogan">{{ title }}</text>
+				</view>
+			</view>
 		</view>
+		<!-- 加入我 -->
+		<join-me></join-me>
 	</view>
 </template>
 
 <script>
-export default {
-	data() {
-		return {
-			title: 'keep creative'
-		};
-	},
-	onLoad() {
-		setTimeout(function(){
-			uni.reLaunch({
-				url:'../setting/setting'
-			})
-		},2000)
-		
-	},
-	methods: {}
-};
+	import JoinMe from '../../components/join-me/join-me.vue'
+
+	export default {
+		data() {
+			return {
+				title: 'keep creative'
+			};
+		},
+		onLoad() {
+			setTimeout(function() {
+				uni.reLaunch({
+					url: '../setting/setting'
+				})
+			}, 2000)
+
+		},
+		methods: {},
+		components: {
+			JoinMe
+		}
+	};
 </script>
 
 <style lang="scss">
-.content {
-	position: absolute;
-	width: 400rpx;
-	height: 400rpx;
-	
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%,-50%);	
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	text-align:center;
-	.logo {
-		height: 300rpx;
-		width: 400rpx;
-	}
-	.text-area {
-		display: flex;
-		justify-content: center;
-		.title {
-			font-size: 40rpx;
-			color: #8f8f94;
-			text-align: center;
+	.content {
+		position: absolute;
+		top: 40%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+
+		.logo-slogan {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+
+			.logo-pic {
+				.logo {
+					height: 400rpx;
+					width: 400rpx;
+				}
+			}
+
+			.logo-slogan {
+				text-align: center;
+
+				.slogan {
+					font-size: 60rpx;
+					color: #8f8f94;
+				}
+			}
 		}
 	}
-}
 </style>

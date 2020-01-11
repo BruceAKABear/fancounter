@@ -1,0 +1,1 @@
+<view class="agent-box"><view class="agent-box-info"><text>了解更多有趣好玩的创意请关注</text></view><view class="agent-box-contact"><text>公众号</text><view data-event-opts="{{[['tap',[['jump2']]]]}}" bindtap="__e"><text style="color:#29c1c2;">【BLab大熊实验室】</text></view></view></view>

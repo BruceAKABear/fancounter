@@ -10,5 +10,10 @@
     "navigationBarBackgroundColor": "#FFFFFF",
     "backgroundColor": "#FFFFFF"
   },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "部分手机需要获取位置信息才能使用蓝牙"
+    }
+  },
   "usingComponents": {}
 }

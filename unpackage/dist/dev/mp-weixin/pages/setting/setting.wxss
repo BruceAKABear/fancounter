@@ -91,7 +91,13 @@
               flex-direction: column;
 }
 .content .content-header .content-header-batterybox .battery {
-        width: 40rpx;
+        width: 28rpx;
         height: 40rpx;
+}
+.content .content-body {
+    position: absolute;
+    top: 10%;
+    background-color: #000000;
+    width: 100%;
 }
 
