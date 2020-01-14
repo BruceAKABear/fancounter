@@ -26,17 +26,17 @@
 		<!-- 体信息 -->
 		<view class="content-body">
 			<!-- 输入参数 -->
-			<view class="content-body-setting-sys">
+			<view class="content-body-setting-sys padding radius shadow-warp bg-white">
 				<view class="content-body-setting-sys-name">
 					<text>系统参数设置</text>
 				</view>
-				<view class="content-body-setting-sys-content">
+				<view class="content-body-setting-sys-content ">
 					<view class="content-body-setting-sys-content-col">
 						<view class="title">工作模式</view>
-						<radio-group @change="radioChange" class="content-body-setting-sys-content-col-radioinline">
+						<radio-group @change="workTypeChange" class="content-body-setting-sys-content-col-radioinline">
 							<label class="content-body-setting-sys-content-col-radio" v-for="(item, index) in workTypes" :key="item.value">
 								<view>
-									<radio :value="item.value" :checked="item.value === defaultIndex" />
+									<radio :value="item.value" :checked="item.value == workType" />
 								</view>
 								<view>{{item.name}}</view>
 							</label>
@@ -50,28 +50,32 @@
 						<view class="title">WIFI 密码</view>
 						<input v-model="wifiPWD" class="uni-input" focus placeholder="请输入WiFi密码" />
 					</view>
+					<!-- 如果是粉丝计数器模式的话，需要输入up主相关信息 -->
+					<view class="content-body-setting-sys-content-col" v-if="workType==1">
+						<view class="title">bilibili用户id</view>
+						<input v-model="bilibiliId" class="uni-input" focus placeholder="请输入bilibili用户ID" />
+					</view>
+					<view class="content-body-setting-sys-content-col" v-if="workType==1">
+						<view class="title">youtube-key</view>
+						<input v-model="youtubeKey" class="uni-input" focus placeholder="请输入youtubeKey" />
+					</view>
+					<view class="content-body-setting-sys-content-col" v-if="workType==1">
+						<view class="title">头像设置</view>
+						<input v-model="headPic" class="uni-input" focus placeholder="123" />
+					</view>
 				</view>
 			</view>
-			<view class="content-body-setting-display">
-				<view class="content-body-setting-display-name">
-					<text>系统参数设置</text>
-				</view>
-				<view class="content-body-setting-display-content">
-
-				</view>
-			</view>
-			<view class="content-body-setting-firameware">
+			<view class="content-body-setting-firameware radius shadow-warp bg-white">
 				<view class="content-body-setting-firameware-name">
-					<text>固件升级</text>
+					<text>固件管理</text>
 				</view>
-				<view class="content-body-setting-firameware-content">
+				<view class="content-body-setting-firameware-content ">
 
 				</view>
 			</view>
-			<view class="content-body-setting-item-buttom">
-				<button type="primary" :loading="!bluetoothConnected">{{bluetoothConnected?'保存':'蓝牙连接中'}}</button>
-			</view>
-
+		</view>
+		<view class="content-buttom">
+			<button class="cu-btn bg-green round lg shadow" @tap="save" :loading="!bluetoothConnected">{{bluetoothConnected?'保存':'蓝牙连接中'}}</button>
 		</view>
 	</view>
 </template>
@@ -81,15 +85,23 @@
 
 		data() {
 			return {
+				//电池电量
 				battery: 50,
 				deviceId: '',
 				mainUUID: '',
 				writeUUID: '',
 				notifyUUID: '',
-				bluetoothConnected: false,
+				readUUID: '',
+				bluetoothConnected: true,
+				//wifissid
 				wifiSSID: '',
+				//wifi密码
 				wifiPWD: '',
-				defaultIndex: 1,
+				//bilibili用户id
+				bilibiliId: '',
+				headPic: '',
+				//youtube的key
+				youtubeKey: '',
 				workTypes: [{
 						value: 1,
 						name: '粉丝计数器'
@@ -99,7 +111,10 @@
 					},
 
 				],
-				workType: 1
+				//计数器工作模式，1为粉丝计数器，2为天气预报
+				workType: 1,
+				//是否有新版本固件
+				haveNewVersion: true
 			}
 		},
 		onLoad() {
@@ -293,6 +308,28 @@
 
 
 			},
+			workTypeChange(e) {
+				console.log('工作模式改变')
+				this.workType = e.detail.value
+
+			},
+			save() {
+				//保存下发配置到粉丝计数器
+				if (this.workType == 1) {
+					//粉丝计数器模式
+					if (this.wifiSSID != '' && this.wifiPWD != '' && this.bilibiliId != '') {
+
+					} else {
+						console.error('请将数据填写完整')
+
+					}
+
+				} else {
+
+				}
+
+
+			}
 
 
 
@@ -346,13 +383,10 @@
 	}
 
 	.content-body {
-
-		margin-top: 100rpx;
-		color: #BBBBBB;
-
-		text {
-			margin-left: 20rpx;
-		}
+		width: auto;
+		margin-top: 120rpx;
+		padding: 30rpx;
+		color: #B2B2B2;
 
 		.content-body-setting-sys {
 			.content-body-setting-sys-content {
@@ -374,10 +408,8 @@
 
 					.content-body-setting-sys-content-col-radioinline {
 						display: flex;
-						width: 400rpx;
 
 						.content-body-setting-sys-content-col-radio {
-
 							text-align: center;
 							display: flex;
 							flex-direction: column;
@@ -390,19 +422,27 @@
 		}
 
 		.content-body-setting-firameware {
-			.content-body-setting-firameware-content {
-				height: 200rpx;
-				background-color: #BBBBBB;
+			margin-top: 30rpx;
+
+			.content-body-setting-firameware-name {
+				margin-bottom: 20rpx;
 			}
 
-
+			.content-body-setting-firameware-content {
+				height: 200rpx;
+			}
 		}
 
-		.content-body-setting-item-buttom {
-			width: 100%;
-			position: absolute;
-			bottom: 20rpx;
-		}
+	}
 
+	.content-buttom {
+		position: absolute;
+		bottom: 80rpx;
+		left: 50%;
+		transform: translate(-50%);
+
+		button {
+			width: 600rpx;
+		}
 	}
 </style>

@@ -32,13 +32,16 @@
 
 <style>
 	/*每个页面公共css */
+	@import "colorui/main.css";
+	@import "colorui/icon.css";
 	@import '../../common/uni.css'
+
 	.content {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
 		height: 100%;
-		width: 100%;
+
 	}
 </style>
