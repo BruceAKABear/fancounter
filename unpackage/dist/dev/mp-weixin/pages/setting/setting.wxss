@@ -24,80 +24,109 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
-.content {
+.content-header {
   display: -webkit-box;
   display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  position: absolute;
+  top: 30rpx;
+  right: 30rpx;
+  width: 25%;
 }
-.content .content-header {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    position: absolute;
-    top: 30rpx;
-    right: 30rpx;
-    width: 25%;
+.content-header .content-header-connectbox {
+    width: 50%;
 }
-.content .content-header .content-header-connectbox {
-      width: 50%;
+.content-header .content-header-connectbox .bticon {
+      width: 40rpx;
+      height: 40rpx;
 }
-.content .content-header .content-header-connectbox .bticon {
-        width: 40rpx;
-        height: 40rpx;
-}
-.content .content-header .content-header-connectbox .btinfobox {
-        display: -webkit-box;
-        display: -webkit-flex;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-box-orient: vertical;
-        -webkit-box-direction: normal;
-        -webkit-flex-direction: column;
-            -ms-flex-direction: column;
-                flex-direction: column;
-        -webkit-box-align: center;
-        -webkit-align-items: center;
-            -ms-flex-align: center;
-                align-items: center;
-        font-size: 25rpx;
-}
-.content .content-header .content-header-batterybox {
+.content-header .content-header-connectbox .btinfobox {
       display: -webkit-box;
       display: -webkit-flex;
-      display: -ms-flexbox;
       display: flex;
-      font-size: 25rpx;
-      margin-left: 25rpx;
-      width: 50%;
-      -webkit-box-align: center;
-      -webkit-align-items: center;
-          -ms-flex-align: center;
-              align-items: center;
-      -webkit-box-pack: center;
-      -webkit-justify-content: center;
-          -ms-flex-pack: center;
-              justify-content: center;
       -webkit-box-orient: vertical;
       -webkit-box-direction: normal;
       -webkit-flex-direction: column;
-          -ms-flex-direction: column;
               flex-direction: column;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+              align-items: center;
+      font-size: 25rpx;
 }
-.content .content-header .content-header-batterybox .battery {
-        width: 28rpx;
-        height: 40rpx;
+.content-header .content-header-batterybox {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    font-size: 25rpx;
+    margin-left: 25rpx;
+    width: 50%;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+            align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+            justify-content: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+            flex-direction: column;
 }
-.content .content-body {
-    position: absolute;
-    top: 10%;
-    background-color: #000000;
+.content-header .content-header-batterybox .battery {
+      width: 28rpx;
+      height: 40rpx;
+}
+.content-body {
+  margin-top: 100rpx;
+  color: #BBBBBB;
+}
+.content-body text {
+    margin-left: 20rpx;
+}
+.content-body .content-body-setting-sys .content-body-setting-sys-content {
+    margin-top: 20rpx;
+}
+.content-body .content-body-setting-sys .content-body-setting-sys-content .content-body-setting-sys-content-col {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: flex;
+      padding-bottom: 20rpx;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+              align-items: center;
+}
+.content-body .content-body-setting-sys .content-body-setting-sys-content .content-body-setting-sys-content-col input {
+        margin-left: 30rpx;
+        border-bottom: solid 1rpx #BBBBBB;
+}
+.content-body .content-body-setting-sys .content-body-setting-sys-content .content-body-setting-sys-content-col radio-group {
+        margin-left: 30rpx;
+}
+.content-body .content-body-setting-sys .content-body-setting-sys-content .content-body-setting-sys-content-col .content-body-setting-sys-content-col-radioinline {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: flex;
+        width: 400rpx;
+}
+.content-body .content-body-setting-sys .content-body-setting-sys-content .content-body-setting-sys-content-col .content-body-setting-sys-content-col-radioinline .content-body-setting-sys-content-col-radio {
+          text-align: center;
+          display: -webkit-box;
+          display: -webkit-flex;
+          display: flex;
+          -webkit-box-orient: vertical;
+          -webkit-box-direction: normal;
+          -webkit-flex-direction: column;
+                  flex-direction: column;
+          -webkit-box-pack: justify;
+          -webkit-justify-content: space-between;
+                  justify-content: space-between;
+}
+.content-body .content-body-setting-firameware .content-body-setting-firameware-content {
+    height: 200rpx;
+    background-color: #BBBBBB;
+}
+.content-body .content-body-setting-item-buttom {
     width: 100%;
+    position: absolute;
+    bottom: 20rpx;
 }
 

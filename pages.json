@@ -1,14 +1,15 @@
 {
-	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+	"pages": [
+		{
+			"path": "pages/setting/setting",
+			"style": {
+				"navigationBarTitleText": "系统设置"
+			}
+		},
 		{
 			"path": "pages/index/index",
 			"style": {
 				"navigationBarTitleText": "BLab大熊实验室"
-			}
-		}, {
-			"path": "pages/setting/setting",
-			"style": {
-				"navigationBarTitleText": "系统设置"
 			}
 		}
 	],

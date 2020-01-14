@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/index/index",
-    "pages/setting/setting"
+    "pages/setting/setting",
+    "pages/index/index"
   ],
   "subPackages": [],
   "window": {
@@ -15,5 +15,6 @@
       "desc": "部分手机需要获取位置信息才能使用蓝牙"
     }
   },
-  "usingComponents": {}
+  "usingComponents": {},
+  "sitemapLocation": "sitemap12.json"
 }
